@@ -59,7 +59,7 @@ Rename to `subtracker.exe` and add its folder to your `PATH`.
 ### Option 2 — Build from source
 
 ```bash
-git clone https://github.com/your-username/subtracker.git
+git clone https://github.com/un9nplayer/subtracker.git
 cd subtracker
 go build -o subtracker .
 ```
@@ -67,7 +67,7 @@ go build -o subtracker .
 ### Option 3 — `go install`
 
 ```bash
-go install github.com/your-username/subtracker@latest
+go install github.com/un9nplayer/subtracker@latest
 ```
 
 ---
@@ -223,7 +223,7 @@ SubTracker uses the **AgniOps Subdomain Scan API**:
 - **Daily quota**: 1,000 scans (shown after each scan)
 - **Rate limit**: ~10 requests/minute
 
-Get your API key at [agniops.in](https://agniops.in).
+Get your API key at [app.agniops.in](https://app.agniops.in).
 
 ---
 
