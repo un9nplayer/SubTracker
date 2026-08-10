@@ -20,3 +20,4 @@ Thumbs.db
 # Test coverage
 *.out
 coverage.html
+*.txt
