@@ -81,7 +81,17 @@ func runScan(_ *cobra.Command, _ []string) error {
 		return err
 	}
 
-	// ── 4. Print to stdout ─────────────────────────────────────────────────────
+	// ── 4. Handle large results (> 50 subdomains) ───────────
+	autoSavedPath := ""
+	if len(result.Subdomains) > 50 && flagOutputFmt == "table" {
+		autoSavedPath = fmt.Sprintf("%s_subdomains.txt", flagDomain)
+		if saveErr := saveResultToFile(result, autoSavedPath, "plain"); saveErr != nil {
+			red.Printf("  ✗ Failed to auto-save results to %s: %v\n", autoSavedPath, saveErr)
+			autoSavedPath = ""
+		}
+	}
+
+	// ── 5. Print to stdout ─────────────────────────────────────────────────────
 	switch flagOutputFmt {
 	case "json":
 		output.PrintJSON(result)
@@ -93,7 +103,7 @@ func runScan(_ *cobra.Command, _ []string) error {
 		output.PrintTable(result, elapsed)
 	}
 
-	// ── 5. Save to file ────────────────────────────────────────────────────────
+	// ── 6. Save to file if explicitly requested via flag ───────────────────────
 	if flagOutFile != "" {
 		if saveErr := saveResultToFile(result, flagOutFile, flagOutputFmt); saveErr != nil {
 			red.Printf("  ✗ Failed to save file: %v\n", saveErr)
@@ -102,8 +112,14 @@ func runScan(_ *cobra.Command, _ []string) error {
 		}
 	}
 
-	// ── 6. Footer (table mode only) ────────────────────────────────────────────
+	// ── 7. Footer (table mode only) ────────────────────────────────────────────
 	if flagOutputFmt == "table" {
+		if autoSavedPath != "" {
+			yellow := color.New(color.FgYellow, color.Bold)
+			yellow.Printf("\n  ⚠  Result count exceeded 50 (%d subdomains found).\n", len(result.Subdomains))
+			yellow.Printf("     Displayed first 50 subdomains in terminal above.\n")
+			green.Printf("  📄 Full list saved to: %s\n", autoSavedPath)
+		}
 		fmt.Printf("\n  📊 Quota remaining today: %d / %d\n",
 			result.Meta.QuotaRemaining, result.Meta.DailyQuota)
 		green.Printf("  ✔  Scan complete in %.2fs\n\n", elapsed.Seconds())

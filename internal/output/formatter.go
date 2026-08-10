@@ -104,7 +104,12 @@ func PrintTable(result *api.ScanResult, elapsed time.Duration) {
 		tablewriter.Colors{},
 	)
 
-	for i, s := range result.Subdomains {
+	displaySubdomains := result.Subdomains
+	if len(displaySubdomains) > 50 {
+		displaySubdomains = displaySubdomains[:50]
+	}
+
+	for i, s := range displaySubdomains {
 		cfLabel := "  ✗ No"
 		cfColor := tablewriter.Colors{tablewriter.FgRedColor}
 		if s.Cloudflare {
