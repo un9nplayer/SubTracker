@@ -1,0 +1,22 @@
+# Compiled binaries
+subtracker
+subtracker.exe
+*.exe
+*.out
+
+# Build output
+dist/
+
+# Go workspace
+go.work
+go.work.sum
+
+# IDE / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Test coverage
+*.out
+coverage.html
