@@ -1,6 +1,6 @@
 package main
 
-import "subtracker/cmd"
+import "github.com/un9nplayer/subtracker/cmd"
 
 func main() {
 	cmd.Execute()

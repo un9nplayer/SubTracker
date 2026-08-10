@@ -9,7 +9,7 @@ import (
 
 	"github.com/fatih/color"
 	"github.com/olekukonko/tablewriter"
-	"subtracker/internal/api"
+	"github.com/un9nplayer/subtracker/internal/api"
 )
 
 // ─── Spinner ───────────────────────────────────────────────────────────────────

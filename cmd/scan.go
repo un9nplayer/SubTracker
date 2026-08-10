@@ -9,9 +9,9 @@ import (
 
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
-	"subtracker/internal/api"
-	"subtracker/internal/config"
-	"subtracker/internal/output"
+	"github.com/un9nplayer/subtracker/internal/api"
+	"github.com/un9nplayer/subtracker/internal/config"
+	"github.com/un9nplayer/subtracker/internal/output"
 )
 
 var (

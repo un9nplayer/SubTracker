@@ -1,4 +1,4 @@
-module subtracker
+module github.com/un9nplayer/subtracker
 
 go 1.21
 

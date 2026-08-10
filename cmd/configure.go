@@ -8,7 +8,7 @@ import (
 
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
-	"subtracker/internal/config"
+	"github.com/un9nplayer/subtracker/internal/config"
 )
 
 var configureCmd = &cobra.Command{
