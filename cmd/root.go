@@ -10,7 +10,7 @@ import (
 
 var rootCmd = &cobra.Command{
 	Use:     "subtracker",
-	Version: "1.0.1",
+	Version: "1.0.2",
 	Short:   "SubTracker — Professional Subdomain Discovery Tool",
 	Long: `
   ███████╗██╗   ██╗██████╗ ████████╗██████╗  █████╗  ██████╗██╗  ██╗███████╗██████╗
@@ -48,6 +48,6 @@ func init() {
 	// Custom version template
 	rootCmd.SetVersionTemplate(fmt.Sprintf(
 		"\n  SubTracker v%s — Subdomain Discovery Tool\n  Powered by AgniOps Intelligence Node\n\n",
-		"1.0.1",
+		"1.0.2",
 	))
 }
