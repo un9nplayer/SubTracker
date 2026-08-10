@@ -43,6 +43,7 @@ func init() {
 	// Register sub-commands
 	rootCmd.AddCommand(configureCmd)
 	rootCmd.AddCommand(scanCmd)
+	rootCmd.AddCommand(updateCmd)
 
 	// Custom version template
 	rootCmd.SetVersionTemplate(fmt.Sprintf(

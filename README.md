@@ -140,6 +140,16 @@ subtracker configure
 
 ---
 
+### `subtracker update`
+
+Check GitHub for new releases and get update instructions.
+
+```bash
+subtracker update
+```
+
+---
+
 ### `subtracker scan`
 
 Discover subdomains for a target domain.
