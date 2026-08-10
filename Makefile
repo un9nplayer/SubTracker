@@ -1,6 +1,6 @@
 # ── SubTracker Makefile ───────────────────────────────────────────────────────
 BINARY  := subtracker
-VERSION := 1.0.0
+VERSION := 1.0.1
 LDFLAGS := -ldflags "-s -w -X main.version=$(VERSION)"
 DIST    := dist
 
